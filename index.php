@@ -3,6 +3,7 @@
 session_start();
 require_once 'inc/Helper.php';
 
+Helper::dump($_GET);
 // $_GET - assoc. array für get-params
 // initialisiere variablen
 $id         = null;
@@ -10,5 +11,7 @@ $id         = null;
 $action     = null;
 // identifikator eines controllers
 $controller = null;
-echo 'Hallo';
+
+// todo define controller
+
 ?>
