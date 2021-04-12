@@ -18,8 +18,6 @@ Zugriffsrechte unter Windows setzen
 <VirtualHost *:80>
 	ServerName localhost
 	DocumentRoot "/xampp/htdocs"
-	CustomLog "logs/access.log" common
-	ErrorLog "logs/error.log"
 </VirtualHost>
 <VirtualHost *:80>
 	ServerName bta-movies-start.loc
@@ -31,16 +29,14 @@ Zugriffsrechte unter Windows setzen
 - Mac OSX: /Applications/XAMPP/etc/extra/httpd-vhosts.conf
 ```
 <VirtualHost *:80>
-	ServerName localhost
-	DocumentRoot "/Applications/XAMPP/htdocs"
-	CustomLog "logs/access.log" common
-	ErrorLog "logs/error.log"
+    ServerName localhost
+    DocumentRoot "/Applications/XAMPP/xamppfiles/htdocs"
 </VirtualHost>
 <VirtualHost *:80>
-	ServerName bta-movies-start.loc
-	DocumentRoot "/Applications/XAMPP/htdocs/bta-movies-start"
-	CustomLog "logs/access_bta-movies-start.log" common
-	ErrorLog "logs/error_bta-movies-start.log"
+    ServerName bta-movies-start.loc
+    DocumentRoot "/Applications/XAMPP/xamppfiles/htdocs/bta-movies-start"
+    ErrorLog "logs/bta-movies-start-error_log"
+    CustomLog "logs/bta-movies-start-access_log" common
 </VirtualHost>
 ```
 #### Apache -> httpd.conf überprüfen
