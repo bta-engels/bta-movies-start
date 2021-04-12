@@ -1,6 +1,6 @@
 <?php
 // starte session
-//session_start();
+session_start();
 require_once 'inc/Helper.php';
 
 // initialisiere variablen
