@@ -6,7 +6,5 @@ class User extends Model {
 
     public function get($username, $password)
     {
-        $sql = "SELECT id,username FROM $this->table WHERE username=? AND password=?";
-        return $this->getOne($sql, [$username, $password]);
     }
 } 

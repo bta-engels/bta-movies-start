@@ -9,11 +9,6 @@ class MyDB extends PDO
 {
 
     /**
-     * @var int
-     */
-    private $_outputFormat = PDO::FETCH_ASSOC;
-
-    /**
      * MyDB constructor.
      * wird bei jeder instanzierung der Klasse als Objekt ausgeführt
      */
@@ -25,7 +20,7 @@ class MyDB extends PDO
             // gib abfrage ergenisse mit dem zechensatzt 'utf8' aus
             PDO::MYSQL_ATTR_INIT_COMMAND    => 'SET NAMES utf8',
             // einen einzelnen datensatz nur als assoziatives array ausgeben
-            PDO::ATTR_DEFAULT_FETCH_MODE    => $this->_outputFormat,
+            PDO::ATTR_DEFAULT_FETCH_MODE    => PDO::FETCH_ASSOC,
             // bei auftretenden fehlern exceptions ausgeben
             PDO::ATTR_ERRMODE               => PDO::ERRMODE_EXCEPTION,
         ];
@@ -39,9 +34,6 @@ class MyDB extends PDO
      */
     public function getAll(string $sql, array $params = null)
     {
-        $stmt   = $this->prepareAndExecute($sql, $params);
-        $result = $stmt->fetchAll();
-        return $result;
     }
 
   /**
@@ -51,9 +43,6 @@ class MyDB extends PDO
    */
     public function getOne(string $sql, array $params = null)
     {
-        $stmt   = $this->prepareAndExecute($sql, $params);
-        $result = $stmt->fetch();
-        return $result;
     }
 
     /**
@@ -80,23 +69,5 @@ class MyDB extends PDO
         if ($error && $errmsg = array_pop($error)) {
             throw new MyDBException($errmsg);
         }
-    }
-
-    /**
-     * @param int $outputFormat
-     * @return $this
-     */
-    public function setOutputFormat($outputFormat)
-    {
-        $this->_outputFormat = $outputFormat;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getOutputFormat()
-    {
-        return $this->_outputFormat;
     }
 }
