@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+    ServerName localhost
+    DocumentRoot "/opt/lampp/htdocs"
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName bta-movies-start.loc
+    DocumentRoot "/opt/lampp/htdocs/bta-movies-start"
+    ErrorLog "logs/bta-movies-start-error_log"
+    CustomLog "logs/bta-movies-start-access_log" common
+</VirtualHost>
