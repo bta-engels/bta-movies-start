@@ -10,6 +10,14 @@ class Model extends MyDB {
     }
         
     public function find(int $id) {
+        // parameter per numeric array
+        $sql = "SELECT * FROM $this->table WHERE id=?";
+        return $this->getOne($sql, [$id]);
+        /*
+        // parameter per assoc array
+        $sql = "SELECT * FROM $this->table WHERE id=:id";
+        return $this->getOne($sql, ['id' => $id]);
+        */
     }
 }
 ?>
