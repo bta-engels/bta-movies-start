@@ -1,6 +1,6 @@
 <?php require_once 'inc/html_header.php'; ?>
 
-<form method="post" class="" action="/authors/store<?php if($id): echo "/$id"; endif; ?>">
+<form method="post" action="/authors/store<?php if($id): echo "/$id"; endif; ?>">
     <div class="form-group row">
         <label for="firstname" class="col-md-2 col-form-label">Vorname</label>
         <div class="col-md-10">
