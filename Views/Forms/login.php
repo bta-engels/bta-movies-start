@@ -1,6 +1,6 @@
 <?php require_once 'inc/html_header.php'; ?>
 
-<?php if($error): ?>
+<?php if(isset($error)): ?>
     <h3 class="text-danger"><?php echo $error; ?></h3>
 <?php endif; ?>
 

@@ -4,7 +4,8 @@ class User extends Model {
 
     protected $table = 'users';
 
-    public function get($username, $password)
+    public function get(string $username, string $password)
     {
+        
     }
 } 
