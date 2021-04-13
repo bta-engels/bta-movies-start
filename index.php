@@ -9,7 +9,7 @@ Helper::dump($_GET);
 $id         = null;
 // name einer controller funktion
 $action     = null;
-// identifikator eines controllers
+// konstruktor eines controllers
 $controller = null;
 
 // todo define controller
