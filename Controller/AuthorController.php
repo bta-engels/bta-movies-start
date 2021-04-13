@@ -16,6 +16,8 @@ class AuthorController extends Controller
     }
 
     public function show($id) {
+        $item = $this->model->find($id);
+        require_once 'Views/author/show.php';
     }
     
     // zeige formular zum editiern oder neu anlegen eines datensatzes an 
