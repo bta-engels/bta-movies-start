@@ -10,9 +10,9 @@ class AuthorController extends Controller
         $this->model = new Author();
     }
 
-    public function index()
-    {
-        
+    public function index() {
+        $list = $this->model->all();
+        require_once 'Views/author/index.php';
     }
 
     public function show($id) {
