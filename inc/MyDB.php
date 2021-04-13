@@ -12,8 +12,7 @@ class MyDB extends PDO
      * MyDB constructor.
      * wird bei jeder instanzierung der Klasse als Objekt ausgeführt
      */
-    public function __construct()
-    {
+    public function __construct() {
         // DSN: data source name
         $dsn  = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME;
         $options = [
@@ -32,8 +31,9 @@ class MyDB extends PDO
      * @param null $params
      * @return array|bool
      */
-    public function getAll(string $sql, array $params = null)
-    {
+    public function getAll(string $sql, array $params = null) {
+        $stmt = $this->prepareAndExecute($sql, $params);
+        return $stmt->fetchAll();
     }
 
   /**
@@ -41,8 +41,9 @@ class MyDB extends PDO
    * @param array|null $params
    * @return array|bool
    */
-    public function getOne(string $sql, array $params = null)
-    {
+    public function getOne(string $sql, array $params = null) {
+        $stmt = $this->prepareAndExecute($sql, $params);
+        return $stmt->fetch();
     }
 
     /**
@@ -50,8 +51,7 @@ class MyDB extends PDO
      * @param null $params
      * @return bool|PDOStatement
      */
-    protected function prepareAndExecute($sql, $params = null) : PDOStatement
-    {
+    protected function prepareAndExecute($sql, $params = null) : PDOStatement {
         $stmt = $this->prepare($sql);
         $stmt->execute($params);
         $this->handleErrors($stmt);
@@ -62,8 +62,7 @@ class MyDB extends PDO
     /**
      * @param PDOStatement $stmt
      */
-    public function handleErrors(PDOStatement $stmt)
-    {
+    public function handleErrors(PDOStatement $stmt) {
         $error = $stmt->errorInfo() ?: null;
       // gibt es fehler, dann gebe sie hier aus
         if ($error && $errmsg = array_pop($error)) {
