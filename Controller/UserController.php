@@ -42,6 +42,8 @@ class UserController {
             $user = $this->model->get($username, $password); 
             if($user) {
                 // todo: set auth session and redirect to home route
+                $_SESSION['auth'] = $user;
+                header("location: $this->redirectTo");
             } else {
                 $error = 'Falsche Login Daten!';
                 require_once 'Views/Forms/login.php';
@@ -54,6 +56,9 @@ class UserController {
      */
     public function logout() : void
     {
+        unset($_SESSION['auth']);
+        session_destroy();
+        header("location: $this->redirectTo");
     }
 }
 
