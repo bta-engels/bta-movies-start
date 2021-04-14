@@ -16,6 +16,12 @@
         <li class="nav-item">
             <a class="nav-link" href="/movies">Movies</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories">Kategorien</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/events">Events</a>
+        </li>
     </ul>
 
     <!-- Right Side Of Navbar -->
