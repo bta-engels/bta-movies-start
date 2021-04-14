@@ -21,7 +21,7 @@
     <!-- Right Side Of Navbar -->
     <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->
-        <?php if (!isset($_SESSION['auth'])) : ?>
+        <?php if ( !isset($_SESSION['auth'])) : ?>
 
             <li class="nav-item">
                 <a class="nav-link" href="/login">Login</a>

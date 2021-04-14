@@ -11,7 +11,12 @@ class AuthorController extends Controller
 
     public function index() {
         $list = $this->model->all();
-        require_once 'Views/author/index.php';
+        if(isset($_SESSION['auth'])) {
+            require_once 'Views/author/admin/index.php';
+        } 
+        else {
+            require_once 'Views/author/index.php';
+        }
     }
 
     public function show($id) {        
@@ -27,5 +32,6 @@ class AuthorController extends Controller
     }
 
     public function delete($id) {
+        die(__METHOD__);
     }
 }
