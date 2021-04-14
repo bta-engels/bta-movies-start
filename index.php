@@ -4,6 +4,7 @@
 session_start();
 require_once 'inc/Helper.php';
 require_once 'Controller/AuthorController.php';
+require_once 'Controller/MovieController.php';
 require_once 'Controller/UserController.php';
 
 // non static call
@@ -25,11 +26,14 @@ if( isset($_GET['controller']) ) {
         case 'authors':
             $controller = new AuthorController();
             break;
+        case 'movies':
+            $controller = new MovieController();
+            break;
         case 'user':
             $controller = new UserController();
             break;
-        default:
-            echo "$_GET[controller] is invalid";
+//        default:
+//            echo "$_GET[controller] is invalid";
     }
 
     if (isset($_GET['action']) && $controller && method_exists($controller, $_GET['action'])) {

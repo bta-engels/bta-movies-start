@@ -42,10 +42,18 @@ class AuthorController extends Controller
         if (!$this->auth) {
             header('location: /authors');
         }
-        if ($id) {
-            $this->model->update($_POST, $id);
-        } else {
-            $this->model->insert($_POST);
+        $params = null;
+        
+        if(isset($_POST['firstname']) && '' !== $_POST['firstname'] && isset($_POST['lastname']) && '' !== $_POST['lastname']) {
+            $params = $_POST;
+        }
+
+        if($params) {
+            if ($id) {
+                $this->model->update($params, $id);
+            } else {
+                $this->model->insert($params);
+            }
         }
         header('location: /authors');
     }
