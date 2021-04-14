@@ -17,4 +17,6 @@ RewriteRule  ^(authors|movies)$ index.php?controller=$1&action=index
 
 RewriteRule  ^api/authors$ index.php?controller=api&action=authors
 RewriteRule  ^api/author/([0-9]+)$ index.php?controller=api&action=author&id=$1
-#RewriteRule  ^(.*)$ index.php
+
+RewriteCond $1 !^(css|js|uploads)/ [NC]
+RewriteRule  ^(.*)$ index.php
