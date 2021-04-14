@@ -1,6 +1,7 @@
 -- CRUD - Create, Read, Update, Delete
 -- neuen datensatz anlegen
 INSERT INTO namen (id, vorname, nachname) VALUES (NULL,'Bernd', 'Engels');
+INSERT INTO namen (vorname, nachname) VALUES ('Bernd', 'Engels');
 -- neuen datensatz anlegen und bei fehler überspringen
 INSERT IGNORE INTO namen (id, vorname, nachname) VALUES (NULL,'Bernd', 'Engels');
 

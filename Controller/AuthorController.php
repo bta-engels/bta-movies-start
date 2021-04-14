@@ -11,7 +11,7 @@ class AuthorController extends Controller
 
     public function index() {
         $list = $this->model->all();
-        if(isset($_SESSION['auth'])) {
+        if($this->auth) {
             require_once 'Views/author/admin/index.php';
         } 
         else {
@@ -26,12 +26,34 @@ class AuthorController extends Controller
 
     // zeige formular zum editiern oder neu anlegen eines datensatzes an
     public function edit($id = null) {
+
+        if(!$this->auth) {
+            header('location: /authors');
+        }
+
+        if($id) {
+            $data = $this->model->find($id);
+        }
+
+        require_once 'Views/Forms/author.php';
     }
 
     public function store($id = null) {
+        if (!$this->auth) {
+            header('location: /authors');
+        }
+        if ($id) {
+            $this->model->update($_POST, $id);
+        } else {
+            $this->model->insert($_POST);
+        }
+        header('location: /authors');
     }
 
     public function delete($id) {
-        die(__METHOD__);
+        if($this->auth) {
+            $this->model->delete($id);
+        }
+        header('location: /authors');
     }
 }
