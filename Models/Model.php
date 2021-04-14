@@ -24,10 +24,5 @@ class Model extends MyDB {
         $sql = "DELETE FROM $this->table WHERE id=?";
         return $this->prepareAndExecute($sql, [$id]);
     }
-
-        public function insert(array $params) {
-        $sql = "INSERT INTO $this->table (firstname, lastname) VALUES (:firstname, :lastname)";
-        return $this->prepareAndExecute($sql, $params);
-    }
 }
 ?>
