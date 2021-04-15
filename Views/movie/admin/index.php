@@ -1,7 +1,7 @@
 <?php require_once 'inc/html_header.php'; ?>
 
 <div>
-    <a href="/movies/edit" role="button" class="btn btn-primary mt-0 mb-3">Neuen Autor anlegen</a>
+    <a href="/movies/edit" role="button" class="btn btn-primary mt-0 mb-3">Neuen Film anlegen</a>
 </div>
 
 <?php if (isset($list) && count($list) > 0) : ?>
