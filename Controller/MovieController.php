@@ -48,7 +48,6 @@ class MovieController extends Controller {
         }
 
         $params = null;
-        $error = null;
 
         if(isset($_POST['title']) && '' !== $_POST['title'] && isset($_POST['price']) && '' !== $_POST['price']) {
             $params = $_POST;
