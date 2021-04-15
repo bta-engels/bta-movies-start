@@ -3,11 +3,12 @@
 // include controllers
 session_start();
 require_once 'inc/Helper.php';
+/*
 require_once 'Controller/AuthorController.php';
 require_once 'Controller/MovieController.php';
 require_once 'Controller/UserController.php';
 require_once 'Controller/ApiController.php';
-
+*/
 // non static call
 // $helper = new Helper();
 // $helper->dump($_GET);
@@ -25,15 +26,19 @@ $controller = null;
 if( isset($_GET['controller']) ) {
     switch($_GET['controller']) {
         case 'authors':
+            require_once 'Controller/AuthorController.php';
             $controller = new AuthorController();
             break;
         case 'movies':
+            require_once 'Controller/MovieController.php';
             $controller = new MovieController();
             break;
         case 'user':
+            require_once 'Controller/UserController.php';
             $controller = new UserController();
             break;
         case 'api':
+            require_once 'Controller/ApiController.php';
             $controller = new ApiController();
             break;
 //        default:

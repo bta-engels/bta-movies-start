@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-
+require_once 'Controller/AuthorController.php';
 class ApiController extends AuthorController {
 
     public function authors() {
