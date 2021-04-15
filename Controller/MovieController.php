@@ -3,7 +3,7 @@ require_once 'Controller.php';
 require_once 'Models/Movie.php';
 require_once 'Models/Author.php';
 class MovieController extends Controller {
-    
+
     private $authorModel;
 
     public function __construct() {
@@ -48,13 +48,14 @@ class MovieController extends Controller {
         }
 
         $params = null;
+        $error = null;
 
         if(isset($_POST['title']) && '' !== $_POST['title'] && isset($_POST['price']) && '' !== $_POST['price']) {
             $params = $_POST;
             $params['image'] = null;
         }
 
-        if( 0 == $_FILES['image']['error']) {
+        if( UPLOAD_ERR_OK == $_FILES['image']['error']) {
             $image = $_FILES['image']['name'];
             $destination = __DIR__ . '/../uploads/' . $image;
             // todo: upload per move_uploaded_file
