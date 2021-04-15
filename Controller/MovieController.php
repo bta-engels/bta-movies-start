@@ -48,7 +48,7 @@ class MovieController extends Controller {
         }
 
         $params = null;
-        
+
         if(isset($_POST['title']) && '' !== $_POST['title'] && isset($_POST['price']) && '' !== $_POST['price']) {
             $params = $_POST;
             $params['image'] = null;
@@ -57,8 +57,10 @@ class MovieController extends Controller {
         if( 0 == $_FILES['image']['error']) {
             $image = $_FILES['image']['name'];
             $destination = __DIR__ . '/../uploads/' . $image;
-            $params['image'] = $image;
             // todo: upload per move_uploaded_file
+            if(move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
+                $params['image'] = $image;
+            }
         }
 
         if($params) {
