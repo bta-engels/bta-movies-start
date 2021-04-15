@@ -14,6 +14,10 @@
             <th>Preis:</th>
             <td><?php echo $item['price']; ?> €</td>
         </tr>
+        <tr> 
+            <th>Autor:</th> 
+            <td><?php echo $item['author']['firstname']. ' ' .$item['author']['lastname'] ?></td>
+        </tr>
     </table>
 <?php else : ?>
     <h3>Keine Daten vorhanden</h3>
