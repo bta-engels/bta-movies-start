@@ -3,12 +3,7 @@
 // include controllers
 session_start();
 require_once 'inc/Helper.php';
-/*
-require_once 'Controller/AuthorController.php';
-require_once 'Controller/MovieController.php';
-require_once 'Controller/UserController.php';
-require_once 'Controller/ApiController.php';
-*/
+
 // non static call
 // $helper = new Helper();
 // $helper->dump($_GET);

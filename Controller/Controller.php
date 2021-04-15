@@ -8,6 +8,7 @@ abstract class Controller {
     public function __construct()
     {
         $this->auth = isset($_SESSION['auth']);
+        // todo: set viewPath prefix dependent on auth
     }
 }
 ?>
