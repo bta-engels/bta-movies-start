@@ -36,6 +36,10 @@ if( isset($_GET['controller']) ) {
             require_once 'Controller/ApiController.php';
             $controller = new ApiController();
             break;
+        case 'categories':
+            require_once 'Controller/CategoryController.php';
+            $controller = new CategoryController();
+            break;
 //        default:
 //            echo "$_GET[controller] is invalid";
     }

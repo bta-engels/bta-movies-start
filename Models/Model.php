@@ -24,5 +24,21 @@ class Model extends MyDB {
         $sql = "DELETE FROM $this->table WHERE id=?";
         return $this->prepareAndExecute($sql, [$id]);
     }
+
+    public function insert(array $params) {
+        $columns = array_keys($params);
+        $placeholder = array_map(function ($key) { return ":$key"; }, $columns);
+        $sql = "INSERT INTO $this->table (".implode(',', $columns).") VALUES (".implode(',', $placeholder).")";
+        return $this->prepareAndExecute($sql, $params);
+    }
+
+    public function update(array $params, int $id) {
+        $columns = array_keys($params);
+        $placeholder = array_map(function ($key) { return "$key = :$key"; }, $columns);
+        $sql = "UPDATE $this->table SET ".implode(',', $placeholder)." WHERE id=:id";
+        $params['id'] = $id;
+        return $this->prepareAndExecute($sql, $params);
+    }
+
 }
 ?>
