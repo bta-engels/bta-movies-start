@@ -1,7 +1,8 @@
 <?php
 require_once 'Controller.php';
+require_once 'IController.php';
 require_once 'Models/Author.php';
-class AuthorController extends Controller
+class AuthorController extends Controller implements IController
 {
 
     public function __construct() {
