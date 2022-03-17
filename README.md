@@ -1,5 +1,5 @@
-# bta-movies-start
-## Einrichtung eines Virtuellen Host namens: bta-movies-start.loc
+# movies-start
+## Einrichtung eines Virtuellen Host namens: movies-start.loc
 
 Für Arbeiten an Konfigurations-Dateien unbedingt Text-Editoren benutzen, die Zeilennummern anzeigen.
 Unter Windows z.B TextPad: 
@@ -7,7 +7,7 @@ https://www.textpad.com/de/download
 
 #### Für Windows DNS in host Datei eintragen (C:\Window\System32\drivers\etc\hosts)
 #### Für Mac OSX, Linux DNS in host Datei eintragen (/etc/hosts)
-- 127.0.0.1	bta-movies-start.loc
+- 127.0.0.1	movies-start.loc
 
 Zugriffsrechte unter Windows setzen
 ![Dateirechte](./win_access_hosts.png)
@@ -20,10 +20,10 @@ Zugriffsrechte unter Windows setzen
 	DocumentRoot "/xampp/htdocs"
 </VirtualHost>
 <VirtualHost *:80>
-	ServerName bta-movies-start.loc
-	DocumentRoot "/xampp/htdocs/bta-movies-start"
-	CustomLog "logs/access_bta-movies-start.log" common
-	ErrorLog "logs/error_bta-movies-start.log"
+	ServerName movies-start.loc
+	DocumentRoot "/xampp/htdocs/movies-start"
+	CustomLog "logs/access-movies-start.log" common
+	ErrorLog "logs/error-movies-start.log"
 </VirtualHost>
 ```
 - Mac OSX: /Applications/XAMPP/etc/extra/httpd-vhosts.conf
@@ -33,10 +33,10 @@ Zugriffsrechte unter Windows setzen
     DocumentRoot "/Applications/XAMPP/xamppfiles/htdocs"
 </VirtualHost>
 <VirtualHost *:80>
-    ServerName bta-movies-start.loc
-    DocumentRoot "/Applications/XAMPP/xamppfiles/htdocs/bta-movies-start"
-    ErrorLog "logs/bta-movies-start-error_log"
-    CustomLog "logs/bta-movies-start-access_log" common
+    ServerName movies-start.loc
+    DocumentRoot "/Applications/XAMPP/xamppfiles/htdocs/movies-start"
+    ErrorLog "logs/movies-start-error_log"
+    CustomLog "logs/movies-start-access_log" common
 </VirtualHost>
 ```
 #### Apache -> httpd.conf überprüfen
@@ -67,11 +67,11 @@ Es gibt folgende GET-Parameter:
 - action
 - id (optional)
 Beispiele: 
-- aus bta-movies-start.loc/?controller=authors&action=index wird: bta-movies-start.loc/authors
-- aus bta-movies-start.loc/?controller=authors&action=edit&id=1 wird: bta-movies-start.loc/authors/edit/1
+- aus movies-start.loc/?controller=authors&action=index wird: movies-start.loc/authors
+- aus movies-start.loc/?controller=authors&action=edit&id=1 wird: movies-start.loc/authors/edit/1
 
 Das gesamte Routing wird in index.php implementiert. Eine bestimmte Route 
-(z.B: bta-movies-start/authors) instanziert einen bestimmten Controller und führt eine für diese Route vorgesehene Aktion (Controller Methode)
+(z.B: movies-start/authors) instanziert einen bestimmten Controller und führt eine für diese Route vorgesehene Aktion (Controller Methode)
 aus. Beispiel: bta-movies-start/authors => AuthorController::index()
 
 #### Daten (Model) und Views

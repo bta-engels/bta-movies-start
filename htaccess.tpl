@@ -1,5 +1,5 @@
 
-RedirectPermanent /bta-movies-start http://bta-movies-start.loc
+RedirectPermanent /movies-start http://movies-start.loc
 
 <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
