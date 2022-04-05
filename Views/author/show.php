@@ -1,0 +1,1 @@
+<h3>Autor Einzrlansicht ID:<?php echo $id?></h3>
