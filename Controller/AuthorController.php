@@ -8,4 +8,8 @@ class AuthorController extends Controller {
     // @todo: get authors from db (use model)
     require_once('Views/author/index.php');
   }
+
+  public function show($id){
+    require_once('Views/author/show.php');
+  }
 }
