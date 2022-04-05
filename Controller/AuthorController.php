@@ -10,7 +10,6 @@ class AuthorController extends Controller
         $model = new Author;
         $data = $model->all();
         require_once('Views/author/index.php');
-
     }
 
     public function show($id)
