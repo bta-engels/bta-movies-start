@@ -7,9 +7,7 @@
         <th>Vorname</th>
         <th>Nachname</th>
    </tr>
-   <?php 
-        foreach ($data as $item) :  
-   ?>
+   <?php foreach ($data as $item): ?>
    <tr>
        <td><?php echo $item['id'] ?></td>
        <td><?php echo $item['firstname'] ?></td>
