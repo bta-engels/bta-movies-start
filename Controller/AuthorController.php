@@ -7,8 +7,8 @@ class AuthorController extends Controller {
 
   public function index(){
     // @todo: get authors from db (use model)
-//    $model = new Author;
-    $data = (new Author)->all();
+    $model = new Author;
+    $data = $model->all();
     //Helper::dump($data);
     require_once('Views/author/index.php');
    
