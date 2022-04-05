@@ -1,6 +1,8 @@
 <?php
-require_once 'Model/Model.php';
+require_once 'Models/Model.php';
 
 class Author extends Model {
+
+    protected $table = 'authors';
 
 }
