@@ -1,6 +1,6 @@
 <?php
-
 require_once('Controller/Controller.php');
+require_once('Models/Author.php');
 
 class AuthorController extends Controller {
 

@@ -6,6 +6,7 @@ class Model extends MyDB {
     protected $table;
 
     public function all() {
+        
     }
 
     public function find(int $id) {
