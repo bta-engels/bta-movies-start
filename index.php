@@ -29,7 +29,6 @@ if ($_GET) {
     }
 
     if ($controller && isset($_GET['action']) && method_exists($controller, $_GET['action'])) {
-      // $controller->index();
       $action = $_GET['action'];
 
       if (isset($_GET['id'])) {
