@@ -2,7 +2,7 @@
 require_once 'inc/Helper.php';
 require_once('inc/html_header.php');
 
-Helper::dump($_GET);
+//Helper::dump($_GET);
 
 // initialisiere variablen
 // ID eines Datensatzes

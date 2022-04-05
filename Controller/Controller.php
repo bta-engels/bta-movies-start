@@ -7,6 +7,7 @@ abstract class Controller {
 
     public function __construct()
     {
+        //Helper::vdump($this->model);
     }
 }
 ?>
