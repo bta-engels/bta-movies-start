@@ -11,6 +11,11 @@ class Model extends MyDB {
     }
 
     public function find(int $id) {
+        $sql = "
+            SELECT *
+            FROM $this->table
+            WHERE id = ?";
+        return $this->getOne($sql, [$id]);
     }
 
     public function delete(int $id) {
