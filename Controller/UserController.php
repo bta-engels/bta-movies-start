@@ -11,11 +11,15 @@ class UserController extends Controller
 
     public function check()
     {
-        // check $_POST ,get username, password from $_POST
-        Helper::dump($_POST);
-        $model = new User();
-//        $result = $model->check();
-        echo 'check user data';
+        //check $_POST, get username , password from $_POST
+        if ($_POST){
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $model = new User();
+            $result = $model->check($username, $password);
+            Helper::dump($result);
+        }
+
     }
 
     public function logout()
@@ -23,3 +27,4 @@ class UserController extends Controller
 
     }
 }
+?>
