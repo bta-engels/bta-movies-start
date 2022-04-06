@@ -13,6 +13,7 @@
         <td><?php echo $item['id']?></td>
         <td><?php echo $item['firstname']?></td>
         <td><?php echo $item['lastname']?></td>
-    <tr>    
+    </tr>   
+   
 <?php endforeach?>      
 </table>
