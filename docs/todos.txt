@@ -1,0 +1,8 @@
+
+notwendige Controller Funktionen:
+- public index()                Ausgeben aller Datensätze
+- public show($id)              Anzeige eines einzelnen Datensatzes
+- public edit($id = null)       Formularanzeige für Neueintrag oder Editieren eines existierenden Datensatzes
+- public store($id = null)      Speichern eines Neueintrags oder Update eines existierenden Datensatzes
+- public delete($id)            Löschen eines Datensatzes
+

@@ -2,7 +2,7 @@
 require_once 'inc/Helper.php';
 require_once('inc/html_header.php');
 
-Helper::dump($_GET);
+//Helper::dump($_GET);
 
 // initialisiere variablen
 // ID eines Datensatzes
@@ -22,26 +22,22 @@ if ($_GET) {
         require_once('Controller/AuthorController.php');
         $controller = new AuthorController;
         break;
-
       default:
         echo "Nichts gegeben";
         break;
     }
 
     if ($controller && isset($_GET['action']) && method_exists($controller, $_GET['action'])) {
-      // $controller->index();
       $action = $_GET['action'];
-
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-            $controller->$action($id);
-        } else {
-            $controller->$action();
-        }
-
+      // @todo: existiert ein parameter für id? wenn ja der controller-funtioon als parameter übergeben
+      if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $controller->$action($id);
+      } else {
+        $controller->$action();
+      }
     }
   }
-
 } else {
   require_once('Views/home.php');
 }
