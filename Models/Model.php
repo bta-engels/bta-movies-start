@@ -2,7 +2,7 @@
 require_once 'inc/MyDB.php';
 
 class Model extends MyDB {
-
+    
     protected $table;
 
     public function all() {
@@ -11,8 +11,8 @@ class Model extends MyDB {
     }
 
     public function find(int $id) {
-        $sql = "SELECT * FROM $this->table WHERE id = ?";
-        return $this->getOne($sql, [$id]);
+        $sql = "SELECT * FROM $this->table WHERE id= ?";
+        return $this->getOne($sql,[$id]);
     }
 
     public function delete(int $id) {
