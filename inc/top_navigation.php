@@ -10,6 +10,9 @@
         <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/authors">Autoren</a>
+        </li>
     </ul>
 
     <!-- Right Side Of Navbar -->
