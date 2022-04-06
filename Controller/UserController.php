@@ -19,7 +19,6 @@ class UserController extends Controller
             $result = $model->check($username, $password);
             Helper::dump($result);
         }
-
     }
 
     public function logout()
