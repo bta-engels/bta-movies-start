@@ -22,7 +22,6 @@ if ($_GET) {
         require_once('Controller/AuthorController.php');
         $controller = new AuthorController;
         break;
-
       default:
         echo "Nichts gegeben";
         break;
@@ -30,18 +29,15 @@ if ($_GET) {
 
     if ($controller && isset($_GET['action']) && method_exists($controller, $_GET['action'])) {
       $action = $_GET['action'];
-
+      // @todo: existiert ein parameter für id? wenn ja der controller-funtioon als parameter übergeben
       if (isset($_GET['id'])) {
         $id = $_GET['id'];
         $controller->$action($id);
       } else {
         $controller->$action();
       }
-      // @todo: existiert ein parameter für id? wenn ja der controller-funtioon als parameter übergeben
-
     }
   }
-
 } else {
   require_once('Views/home.php');
 }
