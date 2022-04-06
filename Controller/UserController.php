@@ -17,7 +17,7 @@ class UserController extends Controller
             $password = $_POST['password'];
             $model = new User();
             $result = $model->check($username, $password);
-            Helper::dump($result);
+            Helper::vdump($result);
         }
     }
 
