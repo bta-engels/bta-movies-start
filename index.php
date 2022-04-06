@@ -13,8 +13,8 @@ $action     = null;
 $controller = null;
 
 if ($_GET) {
-  // @todo define controller
-  // @todo define actions (controller methods) with ID or not
+    // @todo define controller
+    // @todo define actions (controller methods) with ID or not
 
   if (isset($_GET['controller'])) {
     switch ($_GET['controller']) {
