@@ -22,6 +22,10 @@ if ($_GET) {
         require_once('Controller/AuthorController.php');
         $controller = new AuthorController;
         break;
+      case 'user':
+        require_once('Controller/UserController.php');
+        $controller = new UserController;
+        break;
       default:
         echo "Nichts gegeben";
         break;
