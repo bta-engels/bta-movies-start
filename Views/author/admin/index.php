@@ -6,6 +6,7 @@
        <tr>
             <th>ID</th>
             <th>Name</th>
+            <th colspan="2"></th>
        </tr>
     </thead>
     <tbody>
@@ -18,7 +19,9 @@
                echo $item['firstname'] . ' ' . $item['lastname'];
                echo '</a>';
                ?>
-            </td>        
+            </td>
+            <td>Edit</td>
+            <td>Delete</td>        
         </tr>
         <?php endforeach ?>
     </tbody>
