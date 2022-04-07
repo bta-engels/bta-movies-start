@@ -22,8 +22,8 @@
                echo '</a>';
                ?>
             </td>
-            <td>Edit</td>
-            <td>Delete</td>        
+            <td><a class="btn btn-primary" href="/authors/edit/<?php echo $item['id']; ?>">Edit</a></td>
+            <td><a class="btn btn-danger" href="/authors/delete/<?php echo $item['id']; ?>">Delete</a></td>        
         </tr>
         <?php endforeach ?>
     </tbody>
