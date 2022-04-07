@@ -1,5 +1,7 @@
 
 <h3>Autoren Liste</h3>
+<!-- Link-Button für neuen Datensatz -->
+<a class="btn btn-primary mb-3" href="/authors/edit">Neuer Autor</a>
 
 <table class="table table-striped">
     <thead>
