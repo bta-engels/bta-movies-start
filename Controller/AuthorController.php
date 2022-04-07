@@ -20,4 +20,19 @@ class AuthorController extends Controller implements IController
         require_once('Views/author/show.php');
     }
 
+    public function edit($id = null)
+    {
+        // TODO: Implement edit() method.
+    }
+
+    public function store($id = null)
+    {
+        // TODO: Implement store() method.
+    }
+
+    public function delete($id)
+    {
+        // TODO: Implement delete() method.
+    }
+
 }
