@@ -1,8 +1,9 @@
 <?php
+require_once('Controller/IController.php');
 require_once('Controller/Controller.php');
 require_once('Models/Author.php');
 
-class AuthorController extends Controller
+class AuthorController extends Controller implements IController
 {
     public function index()
     {
