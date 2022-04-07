@@ -13,11 +13,11 @@
         <tr>
            <td><?php echo $item['id'] ?></td>
            <td>
-               <?php
-               echo "<a href=\"/authors/$item[id]\">";
-               echo $item['firstname'] . ' ' . $item['lastname'];
-               echo '</a>';
-               ?>
+                <?php
+                echo "<a href=\"/authors/$item[id]\">";
+                echo $item['firstname'] . ' ' . $item['lastname'];
+                echo '</a>';
+                ?>
             </td>        
         </tr>
         <?php endforeach ?>
