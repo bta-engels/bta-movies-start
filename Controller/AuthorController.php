@@ -26,11 +26,27 @@ class AuthorController extends Controller implements IController
 
     public function edit($id = null)
     {
+        if ($id > 0) {
+            $model = new Author;
+            $data = $model->find($id);
+            require_once('Views/author/admin/update.php');
+        } else {
+            require_once('Views/author/admin/create.php');
+        }
     }
 
     public function store($id = null)
     {
-        Helper::dump($_POST);
+        // Normalerweise sollte $_POST aus Sicherheitsgründen validiert werden
+        if ($_POST) {
+            $model = new Author;
+            if ($id > 0) {
+                $data = $model->update($_POST, $id);
+            } else {
+                $data = $model->insert($_POST);
+            }
+            header('Location:/authors');
+        }
     }
 
     public function delete($id)
