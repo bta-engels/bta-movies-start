@@ -19,6 +19,10 @@ class Model extends MyDB {
     }
 
     public function delete(int $id) {
+        $sql = "
+        DELETE FROM $this->table
+        WHERE id = ?";
+        return $this->prepareAndExecute($sql, [$id]);
     }
 
     public function insert(array $params) {
