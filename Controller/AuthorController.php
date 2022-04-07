@@ -11,7 +11,7 @@ class AuthorController extends Controller implements IController
         $model = new Author;
         $data = $model->all();
 
-        if($this->auth) {
+        if ($this->auth) {
             require_once('Views/author/admin/index.php');
         } else {
             require_once('Views/author/index.php');
@@ -27,6 +27,13 @@ class AuthorController extends Controller implements IController
 
     public function edit($id = null)
     {
+        if ($id > 0) {
+            $model = new Author;
+            $data = $model->find($id);
+            require_once('Views/author/admin/update.php');
+        } else {
+            require_once('Views/author/admin/create.php');
+        }
     }
 
     public function store($id = null)
