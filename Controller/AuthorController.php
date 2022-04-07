@@ -10,8 +10,11 @@ class AuthorController extends Controller implements IController
         // @todo: get authors from db (use model)
         $model = new Author;
         $data = $model->all();
-        $auth = $this->auth;
-        require_once('Views/author/index.php');
+        if ($this->auth){
+            require_once('Views/author/admin/index.php');
+        } else {
+            require_once('Views/author/index.php');
+        }
     }
 
     public function show($id)
