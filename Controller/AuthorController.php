@@ -51,6 +51,9 @@ class AuthorController extends Controller implements IController
 
     public function delete($id)
     {
+        $model = new Author;
+        $model->delete($id);
+        header('Location:/authors');
     }
 
 }
