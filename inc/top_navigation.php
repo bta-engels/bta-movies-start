@@ -18,7 +18,13 @@
     <!-- Right Side Of Navbar -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <?php
+             if($auth){
+                 echo "<a class=\"nav-link\" href=\"/logout\">Logout $auth[username]</a>";
+             } else {
+                   echo "<a class=\"nav-link\" href=\"/login\">Login</a>";
+             }
+            ?>
         </li>
     </ul>
 </div>

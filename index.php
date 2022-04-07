@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (isset($_SESSION['auth'])){
+    $auth = $_SESSION['auth'];
+} else {
+    $auth = null;
+}
+
 require_once 'inc/Helper.php';
 require_once('inc/html_header.php');
 
@@ -45,6 +52,5 @@ if ($_GET) {
 } else {
     require_once('Views/home.php');
 }
-
 require_once('inc/html_footer.php');
 ?>
