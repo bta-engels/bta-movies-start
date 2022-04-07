@@ -7,7 +7,9 @@ abstract class Controller {
 
     public function __construct()
     {
-        //Helper::vdump($this->model);
+        if (isset($_SESSION['auth'])) {
+            $this->auth = $_SESSION['auth'];
+        }
     }
 }
 ?>
