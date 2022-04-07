@@ -38,11 +38,22 @@ class AuthorController extends Controller implements IController
 
     public function store($id = null)
     {
-        Helper::dump($_POST);
+        if ($_POST) {
+            //Normalerweise kommt hier validierung
+            $model = new Author;
+            if ($id > 0) {
+                $model->update($_POST, $id);
+            } else {
+                $model->insert($_POST);
+            }
+            header('Location:/authors');
+        }
+
     }
 
     public function delete($id)
     {
+        header('Location:/authors');
     }
 
 }
