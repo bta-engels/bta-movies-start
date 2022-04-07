@@ -27,17 +27,15 @@ class AuthorController extends Controller implements IController
 
     public function edit($id = null)
     {
-        // TODO: Implement edit() method.
     }
 
     public function store($id = null)
     {
-        // TODO: Implement store() method.
+        Helper::dump($_POST);
     }
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
     }
 
 }
