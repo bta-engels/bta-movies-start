@@ -18,4 +18,5 @@ class AuthorController extends Controller
         $data = $model->find($id);
         require_once('Views/author/show.php');
     }
+
 }

@@ -17,14 +17,16 @@ class UserController extends Controller
             $password = $_POST['password'];
             $model = new User();
             $result = $model->check($username, $password);
-            // Helper::vdump($result);
-            if (!$result) {
-                $this->login('Falsche Login-Daten!');
+
+            if(!$result) {
+                $this->login('Login Daten falsch!');
             } else {
+                // login war erfolgreich
                 $_SESSION['auth'] = [
                     'id' => $result['id'],
-                    'username' => $result['username'],
+                    'username'  => $result['username'],
                 ];
+                // weiterleiten auf homepage
                 header('Location: /');
             }
         }
