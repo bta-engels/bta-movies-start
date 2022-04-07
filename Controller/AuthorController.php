@@ -41,9 +41,9 @@ class AuthorController extends Controller implements IController
         if ($_POST) {
             $model = new Author;
             if ($id > 0) {
-                $data = $model->update($_POST, $id);
+                $model->update($_POST, $id);
             } else {
-                $data = $model->insert($_POST);
+                $model->insert($_POST);
             }
             header('Location:/authors');
         }
