@@ -30,6 +30,10 @@ if ($_GET) {
         require_once('Controller/AuthorController.php');
         $controller = new AuthorController;
         break;
+      case 'movies':
+        require_once('Controller/MovieController.php');
+        $controller = new MovieController;
+        break;
       case 'user':
         require_once('Controller/UserController.php');
         $controller = new UserController;
