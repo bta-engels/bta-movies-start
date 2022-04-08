@@ -7,8 +7,8 @@ class Movie extends Model
     protected $table = 'movies';
 
     public function insert(array $params) {
-        $sql = "INSERT INTO $this->table (title, price)
-        VALUES (:title, :price)";
+        $sql = "INSERT INTO $this->table (title, price, author_id)
+        VALUES (:title, :price, :author_id)";
         return $this->prepareAndExecute($sql, $params);
     }
 

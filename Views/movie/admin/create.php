@@ -20,6 +20,13 @@
     </div>
 
     <div class="form-group row">
+        <label for="author_id" class="col-md-2 col-form-label">Fremdschlüssel (author_id)</label>
+        <div class="col-md-10">
+            <input type="text" id="author_id" name="author_id" class="form-control col-sm-12 col-md-6 px-1" required />
+        </div>
+    </div>
+
+    <div class="form-group row">
         <div class="col-md-auto float-right">
             <button class="btn btn-primary col-md-auto px-5">senden</button>
         </div>
