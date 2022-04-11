@@ -3,13 +3,18 @@ require_once('Controller/IController.php');
 require_once('Controller/Controller.php');
 require_once('Models/Author.php');
 
-class AuthorController extends Controller implements IController
+class AuthorController extends Controller implements IController 
 {
+
+    public function __construct()
+    {
+        $this->model = new Author;
+    }
+
     public function index()
     {
         // @todo: get authors from db (use model)
-        $model = new Author;
-        $data = $model->all();
+        $data = $this->model->all();
         if ($this->auth) {
             require_once('Views/author/admin/index.php');
         } else {
@@ -19,16 +24,14 @@ class AuthorController extends Controller implements IController
 
     public function show($id)
     {
-        $model = new Author;
-        $data = $model->find($id);
+        $data = $this->model->find($id);
         require_once('Views/author/show.php');
     }
 
     public function edit($id = null)
     {
         if ($id > 0) {
-            $model = new Author;
-            $data = $model->find($id);
+            $data = $this->model->find($id);
             require_once('Views/author/admin/update.php');
         } else {
             require_once('Views/author/admin/create.php');
@@ -39,11 +42,10 @@ class AuthorController extends Controller implements IController
     {
         // Normalerweise sollte $_POST aus Sicherheitsgründen validiert werden
         if ($_POST) {
-            $model = new Author;
             if ($id > 0) {
-                $model->update($_POST, $id);
+                $this->model->update($_POST, $id);
             } else {
-                $model->insert($_POST);
+                $this->model->insert($_POST);
             }
             header('Location:/authors');
         }
@@ -51,8 +53,7 @@ class AuthorController extends Controller implements IController
 
     public function delete($id)
     {
-        $model = new Author;
-        $model->delete($id);
+        $this->model->delete($id);
         header('Location:/authors');
     }
 

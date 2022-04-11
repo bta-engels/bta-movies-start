@@ -4,6 +4,7 @@ require_once 'inc/MyDB.php';
 class Model extends MyDB {
     
     protected $table;
+    protected $model;
 
     public function all() {
         $sql = "SELECT * FROM $this->table";
