@@ -1,11 +1,10 @@
 <?php
-
 require_once('Models/Model.php');
 
 class Author extends Model
 {
     protected $table = 'authors';
-
+/*
     public function insert(array $params) {
         $sql = "INSERT INTO $this->table (firstname, lastname) VALUES (:firstname, :lastname)";
         return $this->prepareAndExecute($sql, $params);
@@ -16,4 +15,5 @@ class Author extends Model
         $params['id'] = $id;
         return $this->prepareAndExecute($sql, $params);
     }
+*/
 }
