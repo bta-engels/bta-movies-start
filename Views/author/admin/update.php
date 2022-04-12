@@ -7,14 +7,14 @@
     <div class="form-group row">
         <label for="firstname" class="col-md-2 col-form-label">Vorname</label>
         <div class="col-md-10">
-            <input type="text" value="<?php echo $data['firstname']?>" id="firstname" name="firstname" class="form-control col-sm-12 col-md-6 px-1" required />
+            <input type="text" value="<?php echo $data['firstname'] ?>" id="firstname" name="firstname" class="form-control col-sm-12 col-md-6 px-1" required />
         </div>
     </div>
 
     <div class="form-group row">
         <label for="lastname" class="col-md-2 col-form-label">Nachname</label>
         <div class="col-md-10">
-            <input type="text" value="<?php echo $data['lastname']?>" id="lastname" name="lastname" class="form-control col-sm-12 col-md-6 px-1" required />
+            <input type="text" value="<?php echo $data['lastname'] ?>" id="lastname" name="lastname" class="form-control col-sm-12 col-md-6 px-1" required />
         </div>
     </div>
 

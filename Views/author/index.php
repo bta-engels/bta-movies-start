@@ -2,15 +2,24 @@
 <h3>Autoren Liste</h3>
 
 <table class="table table-striped">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-    </tr>
-    <?php foreach ($data as $item): ?>
+    <thead>
+       <tr>
+            <th>ID</th>
+            <th>Name</th>
+       </tr>
+    </thead>
+    <tbody>
+        <?php foreach($data as $item): ?>
         <tr>
-            <td><?php echo $item['id'] ?></td>
-            <td><a href="/authors/<?php echo $item['id']?>">
-                    <?php echo $item['firstname'],' ',$item['lastname'] ?></a></td>
+           <td><?php echo $item['id'] ?></td>
+           <td>
+                <?php
+                echo "<a href=\"/authors/$item[id]\">";
+                echo $item['firstname'] . ' ' . $item['lastname'];
+                echo '</a>';
+                ?>
+            </td>        
         </tr>
-    <?php endforeach ?>
+        <?php endforeach ?>
+    </tbody>
 </table>

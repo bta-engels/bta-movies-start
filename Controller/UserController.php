@@ -37,5 +37,5 @@ class UserController extends Controller
         unset($_SESSION['auth']);
         header('Location: /');
     }
+
 }
-?>
