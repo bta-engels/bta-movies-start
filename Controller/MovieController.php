@@ -48,6 +48,7 @@ class MovieController extends Controller implements IController
             //Normalerweise kommt hier validierung
             $params = $_POST;
 //            Helper::dump($_FILES);
+            // file upload via PHP $_FILES var
             if(isset($_FILES['image']) && 0 === $_FILES['image']['error']) {
                 $image  = $_FILES['image']['name'];
                 $source = $_FILES['image']['tmp_name'];

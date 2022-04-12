@@ -2,7 +2,7 @@
 require_once 'inc/MyDB.php';
 
 class Model extends MyDB {
-    
+
     protected $table;
     protected $model;
 
@@ -42,12 +42,10 @@ class Model extends MyDB {
 
     public function update(array $params, int $id) {
         $keys = array_keys($params);
-
-        function placeholder($col) {
-            return $col . '=:' . $col;
-        }
-
-        $values = implode(",", array_map('placeholder', $keys));
+        // array_map via callback function
+        $values = implode(',', array_map(function($col) { return $col . '=:' . $col; }, $keys));
+        // array_map via callback function since PHP version 8 syntax
+        //$values = implode(',', array_map(fn($col) => $col . '=:' . $col, $keys));
 
         $sql = "UPDATE $this->table
         SET $values
