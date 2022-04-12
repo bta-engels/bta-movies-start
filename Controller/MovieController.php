@@ -35,6 +35,8 @@ class MovieController extends Controller implements IController
 
     public function edit($id = null)
     {
+        $model = new Author;
+        $authors = $model->all();
         if ($id > 0) {
             $data = $this->model->find($id);
             require_once('Views/movie/admin/update.php');
