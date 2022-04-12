@@ -6,11 +6,15 @@ require_once('Models/Movie.php');
 class MovieController extends Controller implements IController
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->model = new Movie;
-    }
+    // Refactoring option No 1: Setting $model to string Movie
+    protected $model = Movie::class;
+
+    // 2nd option: Add constructor in which a new Movie instance is defined
+    // public function __construct()
+    // {
+    //     parent::__construct();
+    //     $this->model = new Movie;
+    // }
 
     public function index()
     {

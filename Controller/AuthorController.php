@@ -6,11 +6,15 @@ require_once('Models/Author.php');
 class AuthorController extends Controller implements IController 
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->model = new Author;
-    }
+    // Refactoring option No 1: Setting $model to string Author
+    protected $model = Author::class;
+
+    // 2nd option: Add constructor in which a new Author instance is defined
+    // public function __construct()
+    // {
+    //     parent::__construct();
+    //     $this->model = new Author;
+    // }
 
     public function index()
     {
