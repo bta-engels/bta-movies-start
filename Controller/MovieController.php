@@ -5,11 +5,17 @@ require_once('Models/Movie.php');
 
 class MovieController extends Controller implements IController
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->model = new Movie;
+    }
+
     public function index()
     {
         // @todo: get movies from db (use model)
-        $model = new Movie;
-        $data = $model->all();
+        $data = $this->model->all();
         if ($this->auth) {
             require_once('Views/movie/admin/index.php');
         } else {
@@ -19,16 +25,14 @@ class MovieController extends Controller implements IController
 
     public function show($id)
     {
-        $model = new Movie;
-        $data = $model->find($id);
+        $data = $this->model->find($id);
         require_once('Views/movie/show.php');
     }
 
     public function edit($id = null)
     {
         if ($id > 0) {
-            $model = new Movie;
-            $data = $model->find($id);
+            $data = $this->model->find($id);
             require_once('Views/movie/admin/update.php');
         } else {
             require_once('Views/movie/admin/create.php');
@@ -39,11 +43,10 @@ class MovieController extends Controller implements IController
     {
         // Normalerweise sollte $_POST aus Sicherheitsgründen validiert werden
         if ($_POST) {
-            $model = new Movie;
             if ($id > 0) {
-                $model->update($_POST, $id);
+                $this->model->update($_POST, $id);
             } else {
-                $model->insert($_POST);
+                $this->model->insert($_POST);
             }
             header('Location:/movies');
         }
@@ -51,8 +54,7 @@ class MovieController extends Controller implements IController
 
     public function delete($id)
     {
-        $model = new Movie;
-        $model->delete($id);
+        $this->model->delete($id);
         header('Location:/movies');
     }
 
