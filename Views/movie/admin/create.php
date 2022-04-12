@@ -3,7 +3,7 @@
 <?php if(isset($error)): ?>
     <h3 class="text-danger"><?php echo $error; ?></h3>
 <?php endif; ?>
-
+<!-- importend: attribute enctype="multipart/form-data" for  file upload -->
 <form method="post" enctype="multipart/form-data" action="/movies/store">
     <div class="form-group row">
         <label for="author_id" class="col-md-2 col-form-label">Autor</label>
