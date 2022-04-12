@@ -3,6 +3,8 @@ require_once('Controller/Controller.php');
 
 class UserController extends Controller
 {
+    protected $model = User::class;
+
     public function login($error = null)
     {
         require_once('Views/forms/login.php');
@@ -14,8 +16,7 @@ class UserController extends Controller
         if ($_POST){
             $username = $_POST['username'];
             $password = $_POST['password'];
-            $model = new User();
-            $result = $model->check($username, $password);
+            $result = $this->model->check($username, $password);
 
             if(!$result) {
                 $this->login('Login Daten falsch!');
