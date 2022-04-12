@@ -8,6 +8,7 @@ class AuthorController extends Controller implements IController
 
     public function __construct()
     {
+        parent::__construct();
         $this->model = new Author;
     }
 
