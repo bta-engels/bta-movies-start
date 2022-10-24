@@ -8,12 +8,12 @@
         <th>Titel</th>
         <th>Preis</th>
     </tr>
-    <?php foreach ($data as $item): ?>
-        <tr>
-            <td><?php echo $item['id'] ?></td>
-            <td><?php echo $item['author'] ?></td>
-            <td><a href="/movies/<?php echo $item['id']?>"><?php echo $item['title'] ?></a></td>
-            <td><?php echo trim($item['price']) ?> €</td>
-        </tr>
-    <?php endforeach ?>
+    <!-- php loop für tabellen daten ausgabe  -->
+    <tr>
+        <td>id</td>
+        <td>autor-name</td>
+        <td><a href="/movies/">Titel</a></td>
+        <td>preis €</td>
+    </tr>
+    <!-- php loop ende  -->
 </table>

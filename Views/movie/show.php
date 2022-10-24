@@ -1,7 +1,6 @@
 
-<h3>Movie:  <?php echo $data['title'] ,' ', $id; ?></h3>
-<h5><?php echo $data['price']; ?> €</h5>
-<h5>Autor: <?php echo $data['author']; ?></h5>
-<?php if($data['image']): ?>
-    <img src="/uploads/<?php echo $data['image'] ?>" height="400" alt="<?php echo $data['image'] ?>" title="<?php echo $data['image'] ?>" />
-<?php endif; ?>
+<h3>Movie:  Titel und ID</h3>
+<h5>Preis: €</h5>
+<h5>Autor: </h5>
+<!-- wenn bild vorhanden, dann hier ausgeben -->
+<img src="/uploads/" height="400" alt="" title="" />

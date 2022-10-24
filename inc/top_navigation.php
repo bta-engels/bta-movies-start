@@ -21,12 +21,11 @@
     <!-- Right Side Of Navbar -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <?php if($auth): ?>
-                <a class="nav-link" href="/logout">Logout <?php echo $auth['username']; ?></a>
-            <?php else: ?>
-                <a class="nav-link" href="/login">Login</a>
-            <?php endif; ?>
-
+            <!-- via php prüfen, ob ein user eingeloggt ist -->
+            <!-- wenn ja, dann -->
+                <!--a class="nav-link" href="/logout">Logout username</a-->
+            <!-- ansonsten -->
+                <!--a class="nav-link" href="/login">Login</a-->
         </li>
     </ul>
 </div>

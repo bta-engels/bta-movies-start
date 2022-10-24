@@ -1,8 +1,6 @@
 
 
-<?php if(isset($error)): ?>
-    <h3 class="text-danger"><?php echo $error; ?></h3>
-<?php endif; ?>
+<-- hier login fehler ausgeben -->
 
 <form method="post" class="" action="/login/check">
     <div class="form-group row">

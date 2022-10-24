@@ -10,9 +10,7 @@
         <div class="col-md-10">
             <select id="author_id" name="author_id" class="form-control col-sm-12 col-md-6 px-1" required>
                 <option value="">Bitte wählen</option>
-                <?php foreach($authors as $item): ?>
-                    <option value="<?php echo $item['id']?>"><?php echo $item['firstname'].' '.$item['lastname'] ?></option>
-                <?php endforeach; ?>
+                <!-- hier php-loop über authors für html-options -->
             </select>
         </div>
     </div>
