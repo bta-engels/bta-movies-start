@@ -10,5 +10,7 @@ $action = null;
 // konstruktor eines controllers
 $controller = null;
 
+
+
 require_once('inc/html_footer.php');
 ?>
