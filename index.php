@@ -11,8 +11,6 @@ $action = null;
 $controller = null;
 
 // $_GET auswerten
-?>
-<pre><?php print_r($_GET); ?></pre>
-<?php
+
 require_once('inc/html_footer.php');
 ?>
