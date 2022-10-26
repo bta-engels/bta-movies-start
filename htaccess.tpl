@@ -1,10 +1,13 @@
 
+# leite den zugriff auf /movies-start verzeichnis weiter zu http://movies-start.loc
 RedirectPermanent /movies-start http://movies-start.loc
 
+# erlaube ajax zugriff von allen servern 
 <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
 </IfModule>
 
+# routen umschreibungen zu GET parametern
 RewriteEngine On
 RewriteRule  ^login$ index.php?controller=user&action=login
 RewriteRule  ^login/check$ index.php?controller=user&action=check
@@ -20,5 +23,6 @@ RewriteRule  ^(authors|movies)$ index.php?controller=$1&action=index
 RewriteRule  ^api/authors$ index.php?controller=api&action=authors
 RewriteRule  ^api/author/([0-9]+)$ index.php?controller=api&action=author&id=$1
 
+# css, js, uploads verzeichnisse von umschreibungen ausnehmen
 RewriteCond $1 !^(css|js|uploads)/ [NC]
 RewriteRule  ^(.*)$ index.php
