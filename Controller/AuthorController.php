@@ -15,6 +15,7 @@ class AuthorController extends Controller implements IController
     public function show($id)
     {
         // TODO: Implement show() method.
+        die(__METHOD__);
     }
 
     public function edit($id = null)
