@@ -1,5 +1,5 @@
 
-# leite den zugriff auf /movies-start verzeichnis weiter zu http://movies-start.loc
+# leite den zugriff auf /movies-start in htdocs verzeichnis weiter zu http://movies-start.loc
 RedirectPermanent /movies-start http://movies-start.loc
 
 # erlaube ajax zugriff von allen servern 
