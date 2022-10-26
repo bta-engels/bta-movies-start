@@ -9,6 +9,7 @@ class AuthorController extends Controller implements IController
     public function index()
     {
         // TODO: Implement index() method.
+        die(__METHOD__);
     }
 
     public function show($id)
