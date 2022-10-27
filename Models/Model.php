@@ -15,6 +15,8 @@ class Model extends MyDB {
      * @return void
      */
     public function all() {
+        $sql = "SELECT * FROM $this->table";
+        return $this->getAll($sql);
     }
 
     /**

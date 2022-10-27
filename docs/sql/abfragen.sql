@@ -33,9 +33,8 @@ FROM movies AS m
 JOIN authors AS a ON a.id = m.author_id;
 -- join mit alias oder
 SELECT
-	a.firstname,
-	a.lastname,
-	m.title
+	CONCAT(a.firstname, ' ', a.lastname) author,
+	m.*
 FROM movies m
 JOIN authors a ON a.id = m.author_id;
 -- gruppieren und zählen

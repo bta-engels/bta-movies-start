@@ -1,19 +1,25 @@
 <?php
 require_once('Controller/IController.php');
 require_once('Controller/Controller.php');
+require_once('Models/Movie.php');
 
 class MovieController extends Controller implements IController
 {
-    protected $model = Movie::class;
+    protected $modelName = Movie::class;
 
     public function index()
     {
-        // TODO: Implement index() method.
+        $model = new Movie();
+        $data = $model->all();
+
+        require_once('Views/movie/index.php');
+
     }
 
     public function show($id)
     {
         // TODO: Implement show() method.
+        echo "Einzelansicht für Movie mit ID: $id";
     }
 
     public function edit($id = null)
