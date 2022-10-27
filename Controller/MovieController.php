@@ -11,9 +11,7 @@ class MovieController extends Controller implements IController
     {
         $model = new Movie();
         $data = $model->all();
-
         require_once('Views/movie/index.php');
-
     }
 
     public function show($id)
