@@ -4,18 +4,16 @@ require_once('Controller/Controller.php');
 
 class AuthorController extends Controller implements IController
 {
-    protected $model = Author::class;
+    protected $modelName = Author::class;
 
     public function index()
     {
         // TODO: Implement index() method.
-        die(__METHOD__);
     }
 
     public function show($id)
     {
         // TODO: Implement show() method.
-        die(__METHOD__);
     }
 
     public function edit($id = null)

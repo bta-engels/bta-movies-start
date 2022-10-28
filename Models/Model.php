@@ -23,7 +23,9 @@ class Model extends MyDB {
      * @param int $id
      * @return void
      */
-    public function find(int $id) {
+    public function one(int $id) {
+        $sql = "SELECT * FROM $this->table WHERE id = ?";
+        return $this->getOne($sql, [$id]);
     }
 
     /**

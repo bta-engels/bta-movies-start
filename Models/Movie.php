@@ -15,5 +15,19 @@ class Movie extends Model
         return $this->getAll($sql);
     } 
 
+    /**
+     * @param array $params
+     * @return void
+     */
+    public function insert(array $params) {
+    }
+
+    /**
+     * @param array $params
+     * @param int $id
+     * @return void
+     */
+    public function update(array $params, int $id) {
+    }
 
 }

@@ -1,4 +1,7 @@
 <?php
+// starte session
+session_start();
+
 require_once 'inc/Helper.php';
 require_once('inc/html_header.php');
 
@@ -25,6 +28,10 @@ if(isset($_GET['controller'])) {
             require_once 'Controller/AuthorController.php';
             $controller = new AuthorController();
             break;
+        case 'user':
+            require_once 'Controller/UserController.php';
+            $controller = new UserController();
+            break;
     }
 
     /**
@@ -45,7 +52,7 @@ if(isset($_GET['controller'])) {
             $controller->$action();
         }
     }
-    Helper::dump($_GET);
+//    Helper::dump($_GET);
 } 
 else {
     require_once 'Views/home.php';

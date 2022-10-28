@@ -9,15 +9,18 @@ class MovieController extends Controller implements IController
 
     public function index()
     {
-        $model = new Movie();
-        $data = $model->all();
-        require_once('Views/movie/index.php');
+        $data = $this->model->all();
+        if($this->auth) {
+            require_once('Views/movie/admin/index.php');
+        } else {
+            require_once('Views/movie/index.php');
+        }
     }
 
     public function show($id)
     {
-        // TODO: Implement show() method.
-        echo "Einzelansicht für Movie mit ID: $id";
+        $data = $this->model->one($id);
+        require_once('Views/movie/show.php');
     }
 
     public function edit($id = null)
