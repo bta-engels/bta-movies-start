@@ -4,16 +4,27 @@ require_once('Controller/Controller.php');
 
 class AuthorController extends Controller implements IController
 {
-    protected $model = Author::class;
+    protected $modelName = Author::class;
 
     public function index()
     {
-        // TODO: Implement index() method.
+            //$model  = new Movie;
+            $data   = $this->model->all();
+            if($this->auth){
+                require_once ('Views/author/admin/index.php');
+        
+            } else {
+                require_once ('Views/author/index.php');
+                }
+        
     }
 
     public function show($id)
     {
-        // TODO: Implement show() method.
+        {
+            $data   = $this->model->one($id);
+            require_once ('Views/author/show.php');
+        }
     }
 
     public function edit($id = null)
@@ -23,7 +34,8 @@ class AuthorController extends Controller implements IController
 
     public function store($id = null)
     {
-        // TODO: Implement store() method.
+        $data   = $this->model->one($id);
+        require_once ('Views/author/admin/create.php');
     }
 
     public function delete($id)

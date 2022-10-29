@@ -11,17 +11,24 @@ class Model extends MyDB {
      */
     protected $table;
 
+
     /**
      * @return void
+     * public function all wird von MyDb getAll geerbt und da in zeile 20 schon getAll als name vorkommt
+     * nennen wir es "All". MyDB ist allgemeiner und hier in Model verfeinern wir und konkretisieren wir immer mehr
      */
     public function all() {
+        $sql = "SELECT * FROM $this->table";
+        return $this->getAll($sql);
     }
 
     /**
      * @param int $id
      * @return void
      */
-    public function find(int $id) {
+    public function one(int $id) {
+        $sql = "SELECT * FROM $this->table WHERE id=?";
+        return $this->getOne($sql,[$id]);
     }
 
     /**
@@ -36,6 +43,7 @@ class Model extends MyDB {
      * @return void
      */
     public function insert(array $params) {
+     // $sql = "INSERT INTO `authors`(`id`, `firstname`, `lastname`) VALUES ('[value-1]','[value-2]','[value-3]')
     }
 
     /**
