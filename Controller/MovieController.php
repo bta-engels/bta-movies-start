@@ -36,10 +36,14 @@ class MovieController extends Controller implements IController
 
     public function store($id = null)
     {
-        if($id) {
-            $this->model->update($_POST, $id);
-        } else {
-            $this->model->insert($_POST);
+        if($_POST) {
+            $params = $_POST;
+            // @todo: image upload
+            if($id) {
+                $this->model->update($params, $id);
+            } else {
+                $this->model->insert($params);
+            }
         }
         return $this->index();
     }
