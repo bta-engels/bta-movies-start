@@ -50,6 +50,7 @@ class Model extends MyDB {
         }
         $values = implode(',', $placeholder);
         $sql = "INSERT INTO $this->table ($strCols) VALUES ($values)";
+
         return $this->prepareAndExecute($sql, $params);
     }
 
@@ -67,6 +68,7 @@ class Model extends MyDB {
         $values = implode(',', $placeholder);
         $sql = "UPDATE $this->table SET $values WHERE id = :id";
         $params['id'] = $id;
+        
         return $this->prepareAndExecute($sql, $params);
     }
 }
