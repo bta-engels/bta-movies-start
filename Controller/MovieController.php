@@ -25,17 +25,29 @@ class MovieController extends Controller implements IController
 
     public function edit($id = null)
     {
-        // TODO: Implement edit() method.
+        $authors = $this->model->authors();
+        if($id) {
+            $data = $this->model->one($id);
+            require_once('Views/movie/admin/update.php');
+        } else {
+            require_once('Views/movie/admin/create.php');
+        }
     }
 
     public function store($id = null)
     {
-        // TODO: Implement store() method.
+        if($id) {
+            $this->model->update($_POST, $id);
+        } else {
+            $this->model->insert($_POST);
+        }
+        return $this->index();
     }
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        $this->model->delete($id);
+        return $this->index();
     }
 
 }

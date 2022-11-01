@@ -11,6 +11,9 @@
             <select id="author_id" name="author_id" class="form-control col-sm-12 col-md-6 px-1" required>
                 <option value="">Bitte wählen</option>
                 <!-- hier php-loop über authors für html-options -->
+                <?php foreach($authors as $item): ?>
+                    <option value="<?php echo $item['id']; ?>"><?php echo $item['name']; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
     </div>
