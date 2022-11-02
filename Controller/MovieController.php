@@ -43,13 +43,16 @@ class MovieController extends Controller implements IController
             if($_FILES['image']['error'] == 0) {
                 // bildname
                 $imageName  = $_FILES['image']['name'];
+                $uniqName = uniqid() . '_' . $imageName;
+
                 // interne temporäre upload datei
                 $from       = $_FILES['image']['tmp_name'];
                 // gewünschter speicherort
-                $to = realpath(__DIR__ . '/..') . '/uploads/' . $imageName;
+                $to = realpath(__DIR__ . '/..') . '/uploads/' . $uniqName;
                 if(move_uploaded_file($from, $to)) {
                     // datei wurde erfolgreich hochgeladen
-                    $params['image'] = $imageName;
+                    // db eintrag
+                    $params['image'] = $uniqName;
                 }
             }
             if($id) {
