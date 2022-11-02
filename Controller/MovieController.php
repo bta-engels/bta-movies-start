@@ -38,13 +38,13 @@ class MovieController extends Controller implements IController
     {
         if($_POST) {
             $params = $_POST;
-
+            $params['image'] = null;
             // @todo: image upload mittels $_FILES
             if($_FILES['image']['error'] == 0) {
                 // bildname
                 $imageName  = $_FILES['image']['name'];
+                // uniq bild name
                 $uniqName = uniqid() . '_' . $imageName;
-
                 // interne temporäre upload datei
                 $from       = $_FILES['image']['tmp_name'];
                 // gewünschter speicherort
