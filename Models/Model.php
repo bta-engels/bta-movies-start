@@ -24,8 +24,8 @@ class Model extends MyDB {
      * @return void
      */
     public function one(int $id) {
-        $sql = "SELECT * FROM $this->table WHERE id=?";
-        return $this->getOne($sql,[$id]);
+        $sql = "SELECT * FROM $this->table WHERE id = ?";
+        return $this->getOne($sql, [$id]);
     }
 
     /**
@@ -33,6 +33,8 @@ class Model extends MyDB {
      * @return void
      */
     public function delete(int $id) {
+        $sql = "DELETE FROM $this->table WHERE id = ?";
+        return $this->prepareAndExecute($sql, [$id]);
     }
 
     /**
@@ -40,6 +42,16 @@ class Model extends MyDB {
      * @return void
      */
     public function insert(array $params) {
+        $cols = array_keys($params);
+        $strCols = implode(',', $cols);
+        $placeholder = [];
+        foreach($cols as $col) {
+            $placeholder[] = ":$col";
+        }
+        $values = implode(',', $placeholder);
+        $sql = "INSERT INTO $this->table ($strCols) VALUES ($values)";
+
+        return $this->prepareAndExecute($sql, $params);
     }
 
     /**
@@ -48,6 +60,16 @@ class Model extends MyDB {
      * @return void
      */
     public function update(array $params, int $id) {
+        $cols = array_keys($params);
+        $placeholder = [];
+        foreach($cols as $col) {
+            $placeholder[] = "$col = :$col";
+        }
+        $values = implode(',', $placeholder);
+        $sql = "UPDATE $this->table SET $values WHERE id = :id";
+        $params['id'] = $id;
+        
+        return $this->prepareAndExecute($sql, $params);
     }
 }
 ?>

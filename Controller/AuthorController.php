@@ -28,23 +28,29 @@ class AuthorController extends Controller implements IController
 
     public function edit($id = null)
     {
-        // TODO: Implement edit() method.
-        $data = $this->model->one($id);
-        require_once 'Views/author/admin/update.php';
+        if($id) {
+            // id ist da, also update gemeint
+            $data = $this->model->one($id);
+            require_once 'Views/author/admin/update.php';
+        } else {
+            // keine id da, also neuen datenatz anlegen
+            require_once 'Views/author/admin/create.php';
+        }
     }
 
     public function store($id = null)
     {
-        // TODO: Implement store() method.
-        //$firstname = $_POST['firstname'];
-        //$lastname = $_POST['lastname'];
-        $data = $this->model->one($id);
-        require_once 'Views/author/admin/create.php';
+        if($id) {
+            $this->model->update($_POST, $id);
+        } else {
+            $this->model->insert($_POST);
+        }
+        return $this->index();
     }
 
     public function delete($id)
     {
-        // TODO: Implement delete() method
-        $data = $this->model->one($id);
+        $this->model->delete($id);
+        return $this->index();
     }
 }

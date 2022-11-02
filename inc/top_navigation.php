@@ -24,11 +24,11 @@
             <!-- via php prüfen, ob ein user eingeloggt ist -->
             <!-- wenn ja, dann -->
             <?php if(isset($_SESSION['auth'])): ?>
-                <a class="nav-link" href="/logout">Logout <?php echo $_SESSION['auth']['username'] ?></a>
+                <a class="nav-link" href="/logout">Logout <?php echo $_SESSION['auth']['username']; ?></a>
+            <?php else: ?>    
             <!-- ansonsten -->
-            <?php else: ?>
                 <a class="nav-link" href="/login">Login</a>
-            <?php endif; ?>
+            <?php endif; ?>    
         </li>
     </ul>
 </div>

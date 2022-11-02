@@ -21,10 +21,10 @@ class Author extends Model
      * @param array $params
      * @return void
      */
-    public function insert($id = NULL) {
+    public function insert(array $params) {
         $sql = "INSERT INTO authors (firstname, lastname) 
-        VALUES ('$firstname', '$lastname') ";
-        return $this->table->getOne($sql, [$id, $firstname, $lastname]);
+        VALUES (:firstname, :lastname)";
+        return $this->prepareAndExecute($sql, $params);
     }
 
     /**
@@ -33,11 +33,12 @@ class Author extends Model
      * @return void
      */
     public function update(array $params, int $id) {
+        $params['id'] = $id;
         $sql = "UPDATE authors
-        SET firstname = '$firstname',
-            lastname = '$lastname',
-        WHERE $id";
-        return $this->table->getOne($sql, [$id]);
+        SET firstname = :firstname,
+            lastname = :lastname
+        WHERE id = :id";
+        return $this->prepareAndExecute($sql, $params);
     }
 
     /**
@@ -45,7 +46,7 @@ class Author extends Model
      * @return void
      */
     public function delete(int $id) {
-        $sql = "DELETE FROM authors WHERE id = $id";
-        return $this->table->getOne($sql, [$id]);
+        $sql = "DELETE FROM authors WHERE id = ?";
+        return $this->prepareAndExecute($sql, [$id]);
     }
 }

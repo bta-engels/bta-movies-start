@@ -1,4 +1,5 @@
 <?php
+// starte session
 session_start();
 
 require_once 'inc/Helper.php';
@@ -13,7 +14,7 @@ $action = null;
 $controller = null;
 
 // router bauen
-// $_GET auswerten (if, switch) und entsprechende Controller-Klassen includieren
+// $_GET auswerten (if, switch) und entsprechende Controller-Klassen includieren 
 // und gewünschte Controller-Funktionen aus führen
 
 if(isset($_GET['controller'])) {
@@ -37,12 +38,12 @@ if(isset($_GET['controller'])) {
      * @todo action prüfen
      * - ist $controller nicht null
      * - GET param 'action' prüfen, ob existiert
-     * - hat die controller-klasse eine funktion, die dem action-parameter entspricht
+     * - hat die controller-klasse eine funktion, die dem action-parameter entspricht 
     */
-    if (null != $controller && isset($_GET['action']) && method_exists($controller, $_GET['action'])) {
-        //controller-klasse eine funktion, die dem action-parameter entspricht
+    if  (null != $controller && isset($_GET['action']) && method_exists($controller,$_GET['action'])) {
+        //controller-klasse eine funktion, die dem action-parameter entspricht 
         $action = $_GET['action'];
-
+        
         // @todo prüfe, ob eine id existíert
         if(isset($_GET['id'])) {
             $id = (int) $_GET['id'];
@@ -51,8 +52,8 @@ if(isset($_GET['controller'])) {
             $controller->$action();
         }
     }
-    Helper::dump($_GET);
-}
+//    Helper::dump($_GET);
+} 
 else {
     require_once 'Views/home.php';
 }

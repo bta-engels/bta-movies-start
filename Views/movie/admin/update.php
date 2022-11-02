@@ -8,18 +8,20 @@
         <label for="author_id" class="col-md-2 col-form-label">Autor</label>
         <div class="col-md-10">
             <select id="author_id" name="author_id" class="form-control col-sm-12 col-md-6 px-1" required>
-                <!-- <option value="">Bitte wählen</option> -->
+                <option value="">Bitte wählen</option>
                 <!-- hier php-loop über authors für html-options -->
                 <!-- vorauswahl von aktuellem autor als selected anzeigen -->
-                <?php foreach($data as $item): 
-                    $selected = '';
-                    if ($data['author'] === $item): $selected = 'selected'; ?>
-                    <!-- echo "<option value=\"$item\" $selected>$item</option>"; -->
-                    <option value="<?php echo $id; ?>" $selected><?php echo $item; ?></option>
-                    <?php 
-                    endif;
-                    endforeach; 
-                    ?>
+                <?php 
+                    foreach($authors as $item): 
+                        $selected = '';
+                        if($data['author_id'] == $item['id']) {
+
+                            $selected = 'selected';
+                        } 
+                ?>
+                    <option value="<?php echo $item['id']; ?>" <?php echo $selected; ?>><?php echo $item['name']; ?></option>
+                <?php endforeach; ?>
+
             </select>
         </div>
     </div>
@@ -41,18 +43,23 @@
     </div>
 
     <div class="form-group row">
-        <label for="image" class="col-md-2 col-form-label">Bild <!-- image filename (falls vorhanden) via php ausgeben --></label>
+        <label for="image" class="col-md-2 col-form-label">Bild 
+            <!-- image filename (falls vorhanden) via php ausgeben -->
+            <?php
+                if($data['image']) {
+                    $bild = $data['image'];
+                    echo " ($bild)";
+                }
+            ?> 
+        </label>
         <div class="col-md-10">
-            <?php if($data['image']): ?>
-            <img src="/uploads/<?php echo $data['image']; ?>" height="400" alt="" title="" />
-            <?php endif; ?>
             <input type="file" id="image" name="image" class="form-control-file col-sm-12 col-md-6 px-1" />
         </div>
     </div>
 
     <div class="form-group row">
         <div class="col-md-auto float-right">
-            <button class="btn btn-primary col-md-auto px-5">Speichern</button>
+            <button class="btn btn-primary col-md-auto px-5">senden</button>
         </div>
     </div>
 </form>
