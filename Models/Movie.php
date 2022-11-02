@@ -35,7 +35,6 @@ class Movie extends Model
      * @param array $params
      * @return void
      */
-/*
      public function insert(array $params) {
         $params['image'] = null;
         $sql = "INSERT INTO movies (author_id, title, price, image) VALUES 
@@ -43,13 +42,12 @@ class Movie extends Model
         
         return $this->prepareAndExecute($sql, $params);
     }
-*/
     /**
      * @param array $params
      * @param int $id
      * @return void
      */
-/*
+
      public function update(array $params, int $id) {
         $params['id'] = $id;
         $params['image'] = null;
@@ -63,5 +61,4 @@ class Movie extends Model
 
         return $this->prepareAndExecute($sql, $params);
     }
-*/
 }
