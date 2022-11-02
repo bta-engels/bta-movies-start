@@ -56,6 +56,8 @@ class MovieController extends Controller implements IController
                 }
             }
             if($id) {
+                // altes bild, falls vorhanden, löschen
+                // oder über extra checkbox, vorhandenes bild löschen
                 $this->model->update($params, $id);
             } else {
                 $this->model->insert($params);
@@ -66,6 +68,15 @@ class MovieController extends Controller implements IController
 
     public function delete($id)
     {
+        $data = $this->model->one($id);
+        if($data['image']) {
+            $uploadedFile = realpath(__DIR__ . '/..') . '/uploads/' . $data['image'];
+            if(file_exists($uploadedFile)) {
+                unlink($uploadedFile);
+            }
+        }
+        // prüfen, ob bild vorhanden, wenn ja datei löschen
+        // file_exists, unlink
         $this->model->delete($id);
         return $this->index();
     }
