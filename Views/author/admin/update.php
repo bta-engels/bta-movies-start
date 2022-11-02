@@ -1,7 +1,7 @@
 <?php if(isset($error)): ?>
     <h3 class="text-danger"><?php echo $error; ?></h3>
 <?php endif; ?>
-<form method="post" enctype="multipart/form-data" action="/authors/store/<?php echo $id ?>">
+<form method="post" action="/authors/store/<?php echo $id ?>">
     
     <div class="form-group row">
         <label for="firstname" class="col-md-2 col-form-label">Vorname</label>

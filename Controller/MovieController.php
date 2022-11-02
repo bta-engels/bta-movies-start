@@ -38,7 +38,20 @@ class MovieController extends Controller implements IController
     {
         if($_POST) {
             $params = $_POST;
-            // @todo: image upload
+
+            // @todo: image upload mittels $_FILES
+            if($_FILES['image']['error'] == 0) {
+                // bildname
+                $imageName  = $_FILES['image']['name'];
+                // interne temporäre upload datei
+                $from       = $_FILES['image']['tmp_name'];
+                // gewünschter speicherort
+                $to = realpath(__DIR__ . '/..') . '/uploads/' . $imageName;
+                if(move_uploaded_file($from, $to)) {
+                    // datei wurde erfolgreich hochgeladen
+                    $params['image'] = $imageName;
+                }
+            }
             if($id) {
                 $this->model->update($params, $id);
             } else {

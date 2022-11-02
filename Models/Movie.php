@@ -36,7 +36,6 @@ class Movie extends Model
      * @return void
      */
      public function insert(array $params) {
-        $params['image'] = null;
         $sql = "INSERT INTO movies (author_id, title, price, image) VALUES 
         (:author_id, :title, :price, :image)";
         
@@ -50,7 +49,6 @@ class Movie extends Model
 
      public function update(array $params, int $id) {
         $params['id'] = $id;
-        $params['image'] = null;
 
         $sql = "UPDATE movies SET 
             author_id = :author_id,

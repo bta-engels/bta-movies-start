@@ -47,7 +47,8 @@
             <!-- image filename (falls vorhanden) via php ausgeben -->
             <?php
                 if($data['image']) {
-                    echo " ($data[image])";
+                    $bild = $data['image'];
+                    echo " ($bild)";
                 }
             ?> 
         </label>
