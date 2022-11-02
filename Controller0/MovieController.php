@@ -1,0 +1,48 @@
+<?php
+require_once('Controller/IController.php');
+require_once('Controller/Controller.php');
+require_once('Models/Movie.php');
+
+class MovieController extends Controller implements IController
+{
+    protected $modelName = Movie::class;
+
+    public function index()
+    {
+        //$model = new Movie;
+        $data = $this->model->all();
+        if($this->auth) {
+            require_once 'Views/movie/admin/index.php';
+        } else {
+            require_once 'Views/movie/index.php';
+        }
+    }
+
+    public function show($id)
+    {
+        // TODO: Implement show() method.
+        $data = $this->model->one($id);
+        require_once 'Views/movie/show.php';        
+    }
+
+    public function edit($id = null)
+    {
+        // TODO: Implement edit() method.
+        $data = $this->model->one($id);
+        require_once 'Views/movie/admin/update.php';
+    }
+
+    public function store($id = null)
+    {
+        // TODO: Implement store() method.
+        $data = $this->model->one($id);
+        require_once 'Views/movie/admin/create.php';
+    }
+
+    public function delete($id)
+    {
+        // TODO: Implement delete() method.
+        $data = $this->model->one($id);
+    }
+
+}
