@@ -31,7 +31,7 @@ class MyDB extends PDO
      * @param null $params
      * @return array|bool
      */
-    public function getAll(string $sql, array $params = null)
+    public function getAll(string $sql, ?array $params = null)
     {
         $stmt = $this->prepareAndExecute($sql, $params);
         return $stmt->fetchAll();
