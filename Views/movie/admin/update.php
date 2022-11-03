@@ -57,6 +57,8 @@
         </div>
     </div>
 
+    <!-- checkbox hinzufügen, um bilder zu löschen -->
+
     <div class="form-group row">
         <div class="col-md-auto float-right">
             <button class="btn btn-primary col-md-auto px-5">senden</button>
