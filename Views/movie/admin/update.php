@@ -56,7 +56,14 @@
             <input type="file" id="image" name="image" class="form-control-file col-sm-12 col-md-6 px-1" />
         </div>
     </div>
-
+    <?php if($data['image']): ?>
+    <div class="form-check">
+        <input class="form-check-input" name="drop_img" type="checkbox" value="1" id="flexCheckDefault">
+        <label class="form-check-label" for="drop_img">
+            Bild löschen
+        </label>
+    </div>
+    <?php endif; ?>
     <div class="form-group row">
         <div class="col-md-auto float-right">
             <button class="btn btn-primary col-md-auto px-5">senden</button>
