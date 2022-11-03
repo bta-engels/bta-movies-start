@@ -58,6 +58,10 @@ class MovieController extends Controller implements IController
             if($id) {
                 // altes bild, falls vorhanden, löschen
                 // oder über extra checkbox, vorhandenes bild löschen
+                $dropImage = isset($_POST['drop_image']);
+                $data = $this->model->one($id);
+                Helper::dump($data);
+                die();
                 $this->model->update($params, $id);
             } else {
                 $this->model->insert($params);
