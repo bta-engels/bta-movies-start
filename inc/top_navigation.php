@@ -23,12 +23,9 @@
         <li class="nav-item">
             <!-- via php prüfen, ob ein user eingeloggt ist -->
             <!-- wenn ja, dann -->
-            <?php if(isset($_SESSION['auth'])):  ?>
-                <a class="nav-link" href="/logout">Logout <?php echo $_SESSION['auth']['username'] ?></a>
-            <?php else: ?>
-                 <!-- ansonsten -->
-                <a class="nav-link" href="/login">Login</a>
-            <?php endif; ?>
-            </li>
+                <!--a class="nav-link" href="/logout">Logout username</a-->
+            <!-- ansonsten -->
+                <!--a class="nav-link" href="/login">Login</a-->
+        </li>
     </ul>
 </div>

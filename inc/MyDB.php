@@ -70,8 +70,4 @@ class MyDB extends PDO
             throw new MyDBException($errmsg);
         }
     }
-/* 
-    public function getName(){
-        return $this=>name;
-    } */
 }
