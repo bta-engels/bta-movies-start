@@ -38,7 +38,9 @@ class MovieController extends Controller implements IController
     {
         if($_POST) {
             $params = $_POST;
+            unset($params['drop_image']);
             $params['image'] = null;
+            $uniqName = null;
             // @todo: image upload mittels $_FILES
             if($_FILES['image']['error'] == 0) {
                 // bildname
@@ -58,10 +60,16 @@ class MovieController extends Controller implements IController
             if($id) {
                 // altes bild, falls vorhanden, löschen
                 // oder über extra checkbox, vorhandenes bild löschen
-                $dropImage = isset($_POST['drop_image']);
                 $data = $this->model->one($id);
-                Helper::dump($data);
-                die();
+                if($data['image']) {
+                    $oldImage = realpath(__DIR__ . '/..') . '/uploads/' . $data['image'];
+                    if(file_exists($oldImage)) {
+                        $dropImages = isset($_POST['drop_image']);
+                        if( ($dropImages && !$uniqName) || $uniqName) {
+                            unlink($oldImage);
+                        }
+                    }
+                }
                 $this->model->update($params, $id);
             } else {
                 $this->model->insert($params);

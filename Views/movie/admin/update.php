@@ -57,12 +57,13 @@
         </div>
     </div>
 
-    <!-- checkbox hinzufügen, um bilder zu löschen -->
     <?php if($data['image']): ?>
-
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="1" id="drop_image" name="drop_image">
-        <label class="form-check-label" for="drop_image">Bild löschen</label>
+    <div class="form-group row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10 form-check">
+            <input class="form-check-input" type="checkbox" name="drop_image" id="drop_image" value="1">
+            <label class="form-check-label" for="drop_image">vorhandenes Bild löschen</label>
+        </div>
     </div>
     <?php endif; ?>
 
