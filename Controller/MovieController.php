@@ -41,6 +41,7 @@ class MovieController extends Controller implements IController
             unset($params['drop_image']);
             $params['image'] = null;
             $uniqName = null;
+            
             // @todo: image upload mittels $_FILES
             if($_FILES['image']['error'] == 0) {
                 // bildname
