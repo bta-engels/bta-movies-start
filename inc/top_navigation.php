@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
 </button>
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<nav class="collapse navbar-collapse" id="navbarSupportedContent">
     <!-- Left Side Of Navbar -->
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -23,12 +23,12 @@
         <li class="nav-item">
             <!-- via php prüfen, ob ein user eingeloggt ist -->
             <!-- wenn ja, dann -->
-            <?php if(isset($_SESSION['auth'])):  ?>
-                <a class="nav-link" href="/logout">Logout <?php echo $_SESSION['auth']['username'] ?></a>
-            <?php else: ?>
-                 <!-- ansonsten -->
+            <?php if(isset($_SESSION['auth'])): ?>
+                <a class="nav-link" href="/logout">Logout <?php echo $_SESSION['auth']['username']; ?></a>
+            <?php else: ?>    
+            <!-- ansonsten -->
                 <a class="nav-link" href="/login">Login</a>
-            <?php endif; ?>
-            </li>
+            <?php endif; ?>    
+        </li>
     </ul>
-</div>
+</nav>

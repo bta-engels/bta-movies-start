@@ -13,19 +13,19 @@ class UserController extends Controller
     public function check()
     {
         //check $_POST, get username , password from $_POST
+        // hier login daten prüfen
         $username = $_POST['username'];
-         //password ist als MD5 hash gespeichert
+        // passwort ist als MD5 hash gespeichert
         $password = md5($_POST['password']);
-       
-        $user = $this->model->check($username, $password);
-        Helper::vdump($user);
 
-        if($user){
-            //auth session bauen
-            $_SESSION['auth']= $user;
+        $user = $this->model->check($username, $password);
+
+        if($user) {
+            // auth session bauen
+            $_SESSION['auth'] = $user;
             header('location: /');
-        }else{
-            echo 'Logindaten sind falsch';
+        } else {
+            $this->login( 'Logindaten sind falsch');
         }
     }
 
@@ -33,6 +33,7 @@ class UserController extends Controller
     {
         session_unset();
         session_destroy();
+        // weiterleitung zur startseite 
         header('location: /');
     }
 }

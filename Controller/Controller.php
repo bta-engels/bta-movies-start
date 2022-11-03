@@ -14,10 +14,9 @@ abstract class Controller {
         if($this->modelName && class_exists($this->modelName)) {
             $this->model = new $this->modelName();
         }
-        if(isset($_SESSION['auth'])){
+        if(isset($_SESSION['auth'])) {
             $this->auth = $_SESSION['auth'];
         }
     }
-
 }
 ?>

@@ -1,6 +1,7 @@
 <?php
-//kommunikation zwischen der Browser und dem Server
+// starte session
 session_start();
+
 require_once 'inc/Helper.php';
 require_once('inc/html_header.php');
 
@@ -13,7 +14,7 @@ $action = null;
 $controller = null;
 
 // router bauen
-// $_GET auswerten (if, switch) und entsprechende Controller-Klassen includieren
+// $_GET auswerten (if, switch) und entsprechende Controller-Klassen includieren 
 // und gewünschte Controller-Funktionen aus führen
 
 if(isset($_GET['controller'])) {
@@ -30,20 +31,19 @@ if(isset($_GET['controller'])) {
         case 'user':
             require_once 'Controller/UserController.php';
             $controller = new UserController();
-            break;    
-        
+            break;
     }
 
     /**
      * @todo action prüfen
      * - ist $controller nicht null
      * - GET param 'action' prüfen, ob existiert
-     * - hat die controller-klasse eine funktion, die dem action-parameter entspricht
+     * - hat die controller-klasse eine funktion, die dem action-parameter entspricht 
     */
     if  (null != $controller && isset($_GET['action']) && method_exists($controller,$_GET['action'])) {
-        //controller-klasse eine funktion, die dem action-parameter entspricht
+        //controller-klasse eine funktion, die dem action-parameter entspricht 
         $action = $_GET['action'];
-
+        
         // @todo prüfe, ob eine id existíert
         if(isset($_GET['id'])) {
             $id = (int) $_GET['id'];
@@ -52,8 +52,8 @@ if(isset($_GET['controller'])) {
             $controller->$action();
         }
     }
-   // Helper::dump($_GET);
-}
+//    Helper::dump($_GET);
+} 
 else {
     require_once 'Views/home.php';
 }

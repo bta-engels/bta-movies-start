@@ -11,11 +11,8 @@ class Model extends MyDB {
      */
     protected $table;
 
-
     /**
      * @return void
-     * public function all wird von MyDb getAll geerbt und da in zeile 20 schon getAll als name vorkommt
-     * nennen wir es "All". MyDB ist allgemeiner und hier in Model verfeinern wir und konkretisieren wir immer mehr
      */
     public function all() {
         $sql = "SELECT * FROM $this->table";
@@ -27,8 +24,8 @@ class Model extends MyDB {
      * @return void
      */
     public function one(int $id) {
-        $sql = "SELECT * FROM $this->table WHERE id=?";
-        return $this->getOne($sql,[$id]);
+        $sql = "SELECT * FROM $this->table WHERE id = ?";
+        return $this->getOne($sql, [$id]);
     }
 
     /**
@@ -36,20 +33,25 @@ class Model extends MyDB {
      * @return void
      */
     public function delete(int $id) {
-        $this->getOne($sql,[$id]);
+        $sql = "DELETE FROM $this->table WHERE id = ?";
+        return $this->prepareAndExecute($sql, [$id]);
     }
-    /* public function delete_index($id)   
-	{
-		$this->db->delete('mvc', "`id` = {$id}");
-		
-	} */
 
     /**
      * @param array $params
      * @return void
      */
     public function insert(array $params) {
-     // $sql = "INSERT INTO `authors`(`id`, `firstname`, `lastname`) VALUES ('[value-1]','[value-2]','[value-3]')
+        $cols = array_keys($params);
+        $strCols = implode(',', $cols);
+        $placeholder = [];
+        foreach($cols as $col) {
+            $placeholder[] = ":$col";
+        }
+        $values = implode(',', $placeholder);
+        $sql = "INSERT INTO $this->table ($strCols) VALUES ($values)";
+
+        return $this->prepareAndExecute($sql, $params);
     }
 
     /**
@@ -58,7 +60,16 @@ class Model extends MyDB {
      * @return void
      */
     public function update(array $params, int $id) {
+        $cols = array_keys($params);
+        $placeholder = [];
+        foreach($cols as $col) {
+            $placeholder[] = "$col = :$col";
+        }
+        $values = implode(',', $placeholder);
+        $sql = "UPDATE $this->table SET $values WHERE id = :id";
+        $params['id'] = $id;
         
+        return $this->prepareAndExecute($sql, $params);
     }
 }
 ?>

@@ -1,8 +1,5 @@
-
-<h3>Id: <?php echo $data['title']; ?></h3>
-<h5>Vorname: <?php echo $data['firstname']; ?> </h5>
-<h5>Nachname: <?php echo $data['lastname']; ?></h5> 
-
+<h3>ID: <?php echo $data['id']; ?></h3>
+<h5>Name: <?php echo $data['firstname'], ' ', $data['lastname']; ?></h5>
 <?php 
-Helper::dump($data);
+//Helper::dump($data);
 ?>

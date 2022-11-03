@@ -67,8 +67,8 @@ Es gibt folgende GET-Parameter:
 - action
 - id (optional)
 Beispiele: 
-- aus movies-start.loc/?controller=authors&action=index wird: movies-start.loc/authors
-- aus movies-start.loc/?controller=authors&action=edit&id=1 wird: movies-start.loc/authors/edit/1
+- aus movies-start.loc/authors wird: movies-start.loc/?controller=authors&action=index
+- aus movies-start.loc/authors/edit/1 wird: movies-start.loc/?controller=authors&action=edit&id=1 
 
 Das gesamte Routing wird in index.php implementiert. Eine bestimmte Route 
 (z.B: movies-start/authors) instanziert einen bestimmten Controller und führt eine für diese Route vorgesehene Aktion (Controller Methode)
